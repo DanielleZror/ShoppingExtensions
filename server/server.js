@@ -18,10 +18,10 @@ app.get('/api/CheckProduct', function (req, res) {
     var domain = req.query.domain;
     var returnValue = false;
     var bestProduct
-    for (var i = 0; i < allProducts.length; i++) {
+    for (i in allProducts) {
         if (title.match(new RegExp(allProducts[i]["product"], "i")) != null){
             bestProduct = checkTheBestPrice(allProducts[i])
-            if (allProducts[i][bestProduct] != domain.split(".")[1]) {
+            if (bestProduct != domain.split(".")[1]) {
                 returnValue = allProducts[i][bestProduct]
             }
         }
@@ -40,7 +40,7 @@ checkTheBestPrice =  (product) => {
             bestWeb = allDomains[i].split('.')[1]
         }
     }
-return [bestWeb]
+return bestWeb
     
 }
 

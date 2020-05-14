@@ -4,14 +4,12 @@ fetch('data.json')
 .then(res => res.json())
 .then(data => {
     domains = data["domains"]
-    console.log(domains)
     chrome.tabs.onUpdated.addListener(callback);
 })
 
 
 
- callback = (tab_Id, changeInfo, tab) => {
-    console.log("tabid", tab_Id, "change",  changeInfo,"tab", tab)    
+ callback = (tab_Id, changeInfo, tab) => {  
     if(changeInfo.status == "complete"){
         var domainUrl = new URL(tab.url)
         if (domains.indexOf(domainUrl.host)!= -1){
@@ -21,25 +19,27 @@ fetch('data.json')
 }
 
 
-
-chrome.tabs.onUpdated.addListener(callback);
-
 apiCheckProduct = (title, domain, callback)  => {
     sendTitle = {"title": title, "domain": domain}
     if(jQuery){
         jQuery.get("http://localhost:8080/api/CheckProduct", sendTitle , function (data) {
             if (data) {
-                callback()
+                callback(data, domain)
             }
     })}
 }
 
-popupExtension = () => {
-    window.open(
+popupExtension = (data, domain) => {
+    console.log(data)
+   
+    win = window.open(
         chrome.extension.getURL("popup.html"),
         "exampleName",
         "width=400,height=400"
     );
+    win.addEventListener('load', function() {
+        chrome.runtime.sendMessage({"domain": domain,"price": data["price"],"url": data["url"]})
+    }, true); 
 }
     
 checkDomain = (url) => {
