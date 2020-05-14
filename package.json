@@ -1,0 +1,29 @@
+{
+  "name": "shoppingextensions",
+  "version": "1.0.0",
+  "description": "shoppingextensions",
+  "main": "api.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DanielleZror/ShoppingExtensions.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DanielleZror/ShoppingExtensions/issues"
+  },
+  "homepage": "https://github.com/DanielleZror/ShoppingExtensions#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "jquery": "^3.5.1",
+    "node": "^14.2.0",
+    "npm": "^6.14.5",
+    "webpack": "^4.43.0",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "devDependencies": {}
+}

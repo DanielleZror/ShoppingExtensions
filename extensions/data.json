@@ -1,0 +1,22 @@
+
+{
+   "domains":[
+   "www.amazon.com",
+   "www.ebay.com"
+   ],
+
+   "products": [
+       {
+          "product":".*apple.*macbook.*air.*",
+          "amazon":{
+             "price":"800",
+             "url":"https://www.amazon.com/-/he/Apple-MacBook-13-3in-MF068LL-Renewed/dp/B0765CJS7P/ref=sr_1_1?dchild=1&keywords=macbook+air+13+inch+1.7+ghz+intel+i7&qid=1589389629&sr=8-1"
+          },
+          "ebay":{
+             "price":"735",
+             "url":"https://www.ebay.com/itm/Powerful-Apple-Laptop-MacBook-Air-13-inch-1-7GHz-Intel-i7-8GB-256GB-SSD-A1466/202596982563?epid=1022538992&_trkparms=ispr%3D1&hash=item2f2bb89f23:g:7cIAAOSwFyhaMRM7&enc=AQAEAAACcIQvEcHUrT7nmUC3yY5qbPyaBN1nJEDYW8MyypsJPgXKxIntehGqQQl8nLx%2FEZs3Ri9QlyI7Hpzs%2F5RHPYkzpkrOu4GUzImwe0NX%2F9Nxvl0W5pvHGekfCqFvROfYXMKY5ZfRSIp%2FkmXDu1xfkz%2BoZTrd7Mt2Ucyf5ZhBQkSKVkPhYEdwBmvAihRuMod3a915G3wuhxSpWDYnNzmlKZUPMUl08hV9dZaCbfa7K7YNythhQKf74Q5WJ%2FHeyp6%2F6ssCm%2BmCtw3qjtktM4yh4dRZaDQoyKxqrtWcovu9DJC%2FUz5UsHicy7baOyubktTlqrFu%2FVIbYYMJJBgRstiYHSzt%2FENwYyS63pa6uqWWxz6IFQRlbK4cTyWv3MdDDd%2BnUmvT18y5k6h1YwQdg%2FSjRa8GpzrywqHWejiyqgeJKIq13R%2BRYCuJ3%2BDXXrXLWBA9EgtJ%2BkH5rgrL4g0BV9rWjw1r1iO9KwSmwYGKn9NxyWOackMozJ7t5HdlkjFIECHuXcvSdoiSp595SPFDXHknZL2TDFKbciAWb5a6udQcHKY7y%2F5wBmSGn7K7aKzKST2VNdxMj1rOFpa%2BQqsU0%2FCtyzbgURCF0KKc1XXXaOAL3H96%2Bg%2FEprA0PaE8ZRX5n5AK8AmLXjPHWPnIDvcQU6d5Sxoy%2FmfNsmVlmqg11jJM13OMxIAt2eilUJI4mIlokH4xAfRLHUJeXdgaWJx9XB0CcW009N8UomY%2Bx%2BHQj4JqRYpxAd5%2FXU9gQlCZ%2BekeHRJ73scp0D4fLIm9%2FxrZqAHcTwTDBL8svIRXlyqv%2F10VmgxdxXPrFb%2BOICGdWelwgCzC7ZDLrw%3D%3D&checksum=2025969825634bdeed14e2f647cdb88d9de43a056b4e"
+          }
+      }
+   ]
+}
+
