@@ -14,30 +14,28 @@ app.listen(8080, function () {
 
 
 app.get('/api/CheckProduct', function (req, res) {
-    var title = req.query.title;
+    var product = req.query.selectedProduct;
     var domain = req.query.domain;
     var returnValue = false;
-    var bestProduct
-    for (i in allProducts) {
-        if (title.match(new RegExp(allProducts[i]["product"], "i")) != null){
-            bestProduct = checkTheBestPrice(allProducts[i])
-            if (bestProduct != domain.split(".")[1]) {
-                returnValue = allProducts[i][bestProduct]
-            }
-        }
+    var bestProduct = checkTheBestPrice(product);
+    if (bestProduct != getDomain(domain)) {
+        returnValue = product[bestProduct]
     }
    res.send(returnValue);
 })
 
+getDomain = (domain) => {
+    return domain.split(".")[1]
+}
 
 checkTheBestPrice =  (product) => {
-    var bestPrice =  product[allDomains[0].split('.')[1]]["price"]
+    var bestPrice =  product[getDomain(allDomains[0])]["price"]
     var bestWeb = allDomains[0].split('.')[1]
     for(var i = 1; i < allDomains.length; i++) {
-        var curProductPrice = product[allDomains[i].split('.')[1]]["price"]
+        var curProductPrice = product[getDomain(allDomains[i])]["price"]
         if (bestPrice > curProductPrice) {
             bestPrice = curProductPrice
-            bestWeb = allDomains[i].split('.')[1]
+            bestWeb = getDomain(allDomains[i])
         }
     }
 return bestWeb
