@@ -1,10 +1,9 @@
 var express = require('express');
 var app = express();
 app.use(express.static('public'));
-
+var ebay = require('../modules/ebayAPI.js');
 var data = require('../extensions/data.json')
-var allProducts = data["products"];
-var allDomains = data["domains"];
+var notHaveApi = data["nothaveapi"];
 
  
 app.listen(8080, function () {
@@ -17,29 +16,36 @@ app.get('/api/CheckProduct', function (req, res) {
     var product = req.query.selectedProduct;
     var domain = req.query.domain;
     var returnValue = false;
-    var bestProduct = checkTheBestPrice(product);
-    if (bestProduct != domain) {
-        returnValue = product[bestProduct]
-    }
-   res.send(returnValue);
+    getTheBestProduct(product, findTheBestPrice).then((value) => {
+        var bestProduct = value
+        if (bestProduct != domain) {
+            returnValue = product[bestProduct]
+        }
+        res.send(returnValue);
+    }) 
 })
 
-getDomain = (domain) => {
-    return domain.split(".")[0]
+findTheBestPrice = (product, ebay, ebayPrice) => {
+    var bestWeb = ebay
+    var bestPrice = ebayPrice
+        for(var i = 0; i < notHaveApi.length; i++) {
+            var curProductPrice = product[notHaveApi[i]]["price"]
+            if (parseInt(bestPrice) > parseInt(curProductPrice)) {
+                bestPrice = curProductPrice
+                bestWeb = notHaveApi[i]
+            }
+    }
+    return bestWeb 
 }
 
-checkTheBestPrice =  (product) => {
-    var bestPrice =  product[allDomains[0]]["price"]
-    var bestWeb = allDomains[0]
-    for(var i = 1; i < allDomains.length; i++) {
-        var curProductPrice = product[allDomains[i]]["price"]
-        if (parseInt(bestPrice) > parseInt(curProductPrice)) {
-            bestPrice = curProductPrice
-            bestWeb = allDomains[i]
-        }
-    }
-return bestWeb
-    
+
+var getTheBestProduct = (product, findTheBestPrice) => {
+    return new Promise(function(resolve, reject){
+        ebay.getEbayProduct(product["product"])
+        .then((ebayProduct) => {
+            resolve(findTheBestPrice(product,"ebay", ebayProduct["ebay"]["price"]))
+        })   
+    })        
 }
 
 
