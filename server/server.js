@@ -18,24 +18,24 @@ app.get('/api/CheckProduct', function (req, res) {
     var domain = req.query.domain;
     var returnValue = false;
     var bestProduct = checkTheBestPrice(product);
-    if (bestProduct != getDomain(domain)) {
+    if (bestProduct != domain) {
         returnValue = product[bestProduct]
     }
    res.send(returnValue);
 })
 
 getDomain = (domain) => {
-    return domain.split(".")[1]
+    return domain.split(".")[0]
 }
 
 checkTheBestPrice =  (product) => {
-    var bestPrice =  product[getDomain(allDomains[0])]["price"]
-    var bestWeb = allDomains[0].split('.')[1]
+    var bestPrice =  product[allDomains[0]]["price"]
+    var bestWeb = allDomains[0]
     for(var i = 1; i < allDomains.length; i++) {
-        var curProductPrice = product[getDomain(allDomains[i])]["price"]
-        if (bestPrice > curProductPrice) {
+        var curProductPrice = product[allDomains[i]]["price"]
+        if (parseInt(bestPrice) > parseInt(curProductPrice)) {
             bestPrice = curProductPrice
-            bestWeb = getDomain(allDomains[i])
+            bestWeb = allDomains[i]
         }
     }
 return bestWeb

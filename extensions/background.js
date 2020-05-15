@@ -1,4 +1,3 @@
-//import apiCheckWeb from '../api.js';
 var domains;
 var products;
 fetch('data.json')
@@ -23,8 +22,39 @@ fetch('data.json')
 
 isCheckedDomain = (url) => {
     var domainUrl = new URL(url)
-    return (domains.indexOf(domainUrl.host)!= -1 ? domainUrl.host : false)
+    returnValue = false
+    for (i in domains){
+        if(domainUrl.host.includes(domains[i])){
+            if (isViewOrSearch(url, domains[i])){
+                returnValue = domains[i]
+            }
+        }
+    }
+    return (returnValue)
 }
+
+isViewOrSearch = (url, host) => {
+    var viewUrl = false
+    switch(host) {
+        case("ebay"):
+            if(url.includes("/itm/")){
+                viewUrl = true
+            }
+            break;
+        case("amazon"):
+            if(!url.includes("/s?")){
+                viewUrl = true
+            }
+            break;
+        case("bestbuy"):
+            if(!url.includes("/searchpage")){
+                viewUrl = true
+            }
+            break;
+    }
+    return viewUrl
+}
+
 isCheckedProduct = (title) => {
     var returnValue = false;
     for (i in products) {
