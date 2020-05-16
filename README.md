@@ -17,15 +17,50 @@ The server works with ebay api (search with keywords) and for amazon and bestbuy
 
 ## The result for the products in the list right now
 
-|  keywords | amazon  | ebay  | bestbuy  |   
-|---|---|---|---|---|
-|  xbox one x | V  |   |   |
-| apple macbook air  |  V |   |   |
-|  sony playstation 4 |   |   | V  |
-| apple airpods pro  |   | V  |   |
-| dell xps 13  |   |   | V  |
+<table>
+    <thead>
+        <th>keywords</th>
+        <th>amazon</th>
+        <th>ebay</th>
+        <th>bestbuy</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>xbox one x</td>
+            <td>&#x2611</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>apple macbook air</td>
+            <td>&#x2611</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>ony playstation 4</td>
+            <td></td>
+            <td></td>
+            <td>&#x2611</td>
+        </tr>
+        <tr>
+            <td>apple airpods pro</td>
+            <td></td>
+            <td>&#x2611</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>dell xps 13</td>
+            <td></td>
+            <td></td>
+            <td>&#x2611</td>
+        </tr>
+    </tbody>
+    
+</table>
 
-\* Where **V** stands for the site with the lowest price for each keywords
+
+\* Where check mark stands for the site with the lowest price for each keywords
 
 ## How to add product for check
 Enter to the file '**data.json**', add to products array the following text (change the fields in the brackets):
