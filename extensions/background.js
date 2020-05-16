@@ -8,9 +8,7 @@ fetch('data.json')
         chrome.tabs.onUpdated.addListener(onUpdate);
     })
 
-
-
- function onUpdate(tab_Id, changeInfo, tab) {  
+function onUpdate(tab_Id, changeInfo, tab) {
     if(changeInfo.status == "complete"){
         let selectedUrl = isDomainValid(tab.url)
         let selectedProduct = isProductValid(tab.title)
