@@ -1,5 +1,5 @@
 const express = require('express');
-const APIS = require('../modules/allAPI.js');
+const APIS = require('./modules/allAPI.js');
 const app = express();
 app.use(express.static('public'));
  

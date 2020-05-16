@@ -1,4 +1,4 @@
-const data = require('../extensions/data.json')
+const data = require('../../extensions/data.json')
 const products = data["products"]
 
 function getProduct(keywords) {
