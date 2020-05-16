@@ -1,16 +1,16 @@
 
 {
    "domains":[
-   "amazon",
-   "ebay",
-   "bestbuy"
+      "amazon",
+      "ebay",
+      "bestbuy"
    ],
    "products": [
       {
          "keywords": ["dell","xps", "13"],
          "sites":[{
                   "api": "amazon",
-                  "price":1099,
+                  "price":1399,
                   "url":"https://www.amazon.com/Dell-XPS-9370-Touchscreen-Laptop/dp/B07F23CYWL/ref=sr_1_2_sspa?dchild=1&keywords=dell+xps&qid=1589544326&sr=8-2-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEzMDgyRDZLRUlTN0FVJmVuY3J5cHRlZElkPUEwNDgwMjUyMzFVVVpER0RMNEdDNiZlbmNyeXB0ZWRBZElkPUEwMDUwNzY1MkVMUkFBWUxYTU1aTSZ3aWRnZXROYW1lPXNwX2F0ZiZhY3Rpb249Y2xpY2tSZWRpcmVjdCZkb05vdExvZ0NsaWNrPXRydWU="
                 },
                 {
@@ -38,7 +38,7 @@
           "sites":[{
              "api": "amazon",
              "price":400,
-             "url":"https://www.amazon.com/-/he/PlayStation-4-Pro-1TB-Console/dp/B01LOP8EZC/ref=sr_1_4?crid=1INDEYXSP9HKM&dchild=1&keywords=sony+playstation+4&qid=1589652664&sprefix=sony+play%2Caps%2C322&sr=8-4"
+             "url":"https://www.amazon.com/-/he/Sony-PlayStation-Pro-1TB-Console-4/dp/B07K14XKZH/ref=sr_1_4?dchild=1&keywords=sony+playstation+4&qid=1589659055&sr=8-4"
           },
           {
              "api": "bestbuy",
