@@ -8,11 +8,30 @@ The server works with ebay api (search with keywords) and for amazon and bestbuy
 
 ## How to run
 1. Clone the project
-2. load unpacked extension (extensions folder in the project)
+
+<code>
+    git clone https://github.com/DanielleZror/ShoppingExtensions.git
+</code>
+
+2. load unpacked extension to chrome (extensions folder in the project)
+3. install node modules
+
+<code>
+npm instll
+</code>
+
 3. run the server.js file
+
+<code>
+    node server/server.js
+</code>
+
 4. browse to amazon/ebay/bestbuy
-5. search for one of the product in the list (acordding to the keywords in the table in the next paragraph)
+5. search for one of the product in the list (acordding to the keywords in the table in the next paragraph) 
 6. choose a product that contains all of the keywords
+
+*for example:* [apple macbook air in ebay ](https://www.ebay.com/itm/Apple-MacBook-Air-13-3-Intel-i5-8GB-128GB-Silver-2017/254594285792?epid=238216545&hash=item3b470080e0:g:dF4AAOSwdNlesFNt "apple macbook air") will popup this product at amazon.
+
 7. if the product does not have the lowest price, the extension will popup with a link to the product with the lowest price
 
 ## The result for the products in the list right now
@@ -38,7 +57,7 @@ The server works with ebay api (search with keywords) and for amazon and bestbuy
             <td></td>
         </tr>
         <tr>
-            <td>ony playstation 4</td>
+            <td>sony playstation 4</td>
             <td></td>
             <td></td>
             <td>&#x2611</td>
@@ -52,15 +71,15 @@ The server works with ebay api (search with keywords) and for amazon and bestbuy
         <tr>
             <td>dell xps 13</td>
             <td></td>
-            <td></td>
             <td>&#x2611</td>
+            <td></td>
         </tr>
     </tbody>
     
 </table>
 
 
-\* Where check mark stands for the site with the lowest price for each keywords
+\* Where check mark stands for the site with the lowest price for each keywords (acoording to ebay prices right now)
 
 ## How to add product for check
 Enter to the file '**data.json**', add to products array the following text (change the fields in the brackets):
