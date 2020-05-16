@@ -17,7 +17,7 @@ The server works with ebay api (search with keywords) and for amazon and bestbuy
 3. install node modules
 
 <code>
-npm instll
+npm install
 </code>
 
 3. run the server.js file
