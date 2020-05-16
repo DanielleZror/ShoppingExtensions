@@ -22,7 +22,7 @@ app.get('/api/CheckProduct', (req, res) => {
 })
 
 
-var getTheBestProduct = (product) => {
+function getTheBestProduct(product) {
     return new Promise((resolve, reject) => {
         APIS.findTheLowestPrice(product.keywords)
             .then((bestProduct) => {

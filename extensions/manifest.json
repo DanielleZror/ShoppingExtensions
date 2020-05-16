@@ -3,10 +3,6 @@
     "version": "1.0",
     "description": "Build an Extension!",
     "permissions": [ "<all_urls>","tabs"],
-    "browser_action":{
-      "default_icon": "shoppingIcon.png",
-      "default_popup": "popup.html"
-    },
     "background": {
       "scripts": ["jquery-3.4.1.min.js", "background.js"],
       "persistent": false

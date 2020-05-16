@@ -1,8 +1,8 @@
-var data = require('../extensions/data.json')
-var products = data["products"]
+const data = require('../extensions/data.json')
+const products = data["products"]
 
-var getProduct = function(keywords) {
-    return new Promise(function(resolve, reject){
+function getProduct(keywords) {
+    return new Promise((resolve, reject) => {
         products.forEach(product => {
             if(product.keywords.join() == keywords.join()){
                 product.sites.forEach(site => {

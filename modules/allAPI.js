@@ -1,13 +1,13 @@
-var ebay = require('./ebayAPI.js');
-var amazon = require('./amazonAPI.js');
-var bestbuy = require('./bestbuyAPI.js');
+const ebay = require('./ebayAPI.js');
+const amazon = require('./amazonAPI.js');
+const bestbuy = require('./bestbuyAPI.js');
 
-var apis = [ebay, amazon, bestbuy]
+const apis = [ebay, amazon, bestbuy]
 
-var findTheLowestPrice = function(keywords){
-    return new Promise(function(resolve, reject){
-        var best 
-        var promisesArray = []
+function findTheLowestPrice(keywords) {
+    return new Promise((resolve, reject) => {
+        let best 
+        let promisesArray = []
         apis.forEach(api => {
             promisesArray.push(api.getProduct(keywords))
         })
@@ -19,8 +19,8 @@ var findTheLowestPrice = function(keywords){
                     price: products[0].price,
                     url: products[0].url
                 }
-                for(var i = 1; i < products.length; i++){
-                    if (parseInt(products[i].price) < parseInt(best.price)){
+                for (let i = 1; i < products.length; i++) {
+                    if (parseInt(products[i].price) < parseInt(best.price)) {
                         best.price = products[i].price
                         best.api = products[i].api
                         best.url = products[i].url
