@@ -10,12 +10,12 @@
          "keywords": ["dell","xps", "13"],
          "sites":[{
                   "api": "amazon",
-                  "price":"1099",
+                  "price":1099,
                   "url":"https://www.amazon.com/Dell-XPS-9370-Touchscreen-Laptop/dp/B07F23CYWL/ref=sr_1_2_sspa?dchild=1&keywords=dell+xps&qid=1589544326&sr=8-2-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEzMDgyRDZLRUlTN0FVJmVuY3J5cHRlZElkPUEwNDgwMjUyMzFVVVpER0RMNEdDNiZlbmNyeXB0ZWRBZElkPUEwMDUwNzY1MkVMUkFBWUxYTU1aTSZ3aWRnZXROYW1lPXNwX2F0ZiZhY3Rpb249Y2xpY2tSZWRpcmVjdCZkb05vdExvZ0NsaWNrPXRydWU="
                 },
                 {
                   "api": "bestbuy",
-                  "price":"1200",
+                  "price":1200,
                   "url":"https://www.bestbuy.com/site/dell-xps-2-in-1-13-4-touch-screen-laptop-intel-core-i7-8gb-memory-256gb-solid-state-drive-platinum-silver-with-black-interior/6379243.p?skuId=6379243"
                }
             ]
@@ -24,12 +24,12 @@
           "keywords":["apple", "airpods", "pro"],
           "sites":[{
              "api": "amazon",
-             "price":"216",
+             "price":216,
              "url":"https://www.amazon.com/-/he/Apple-MWP22AM-A-AirPods-Pro/dp/B07ZPC9QD4/ref=sr_1_2?dchild=1&keywords=airpods+pro&qid=1589652409&sr=8-2"
           },
           {
              "api": "bestbuy",
-             "price":"250",
+             "price":250,
              "url":"https://www.bestbuy.com/site/apple-airpods-pro-white/5706659.p?skuId=5706659"
           }]
       }, 
@@ -37,12 +37,12 @@
           "keywords":["sony", "PlayStation", "4"],
           "sites":[{
              "api": "amazon",
-             "price":"400",
+             "price":400,
              "url":"https://www.amazon.com/-/he/PlayStation-4-Pro-1TB-Console/dp/B01LOP8EZC/ref=sr_1_4?crid=1INDEYXSP9HKM&dchild=1&keywords=sony+playstation+4&qid=1589652664&sprefix=sony+play%2Caps%2C322&sr=8-4"
           },
           {
              "api": "bestbuy",
-             "price":"300",
+             "price":300,
              "url": "https://www.bestbuy.com/site/sony-playstation-4-1tb-console-black/5850905.p?skuId=5850905"
              }]
       }, 
@@ -50,12 +50,12 @@
           "keywords":["apple", "macbook", "air"],
           "sites":[{
              "api": "amazon",
-             "price":"500",
+             "price":500,
              "url":"https://www.amazon.com/-/he/Apple-MacBook-13-3in-MF068LL-Renewed/dp/B0765CJS7P/ref=sr_1_1?dchild=1&keywords=macbook+air+13+inch+1.7+ghz+intel+i7&qid=1589389629&sr=8-1"
           },
           {
              "api": "bestbuy",
-             "price":"1000",
+             "price":1000,
              "url":"https://www.bestbuy.com/site/apple-macbook-air-13-3-laptop-with-touch-id-intel-core-i3-8gb-memory-256gb-solid-state-drive-latest-model-gold/6366612.p?skuId=6366612"
           }]
       }, 
@@ -63,12 +63,12 @@
           "keywords":["xbox", "one", "x"],
           "sites":[{
              "api": "amazon",
-             "price":"280",
+             "price":280,
              "url":"https://www.amazon.com/-/he/Xbox-All-Digital-Console-Disc-Free-Gaming/dp/B07XQXZXJC/ref=sr_1_1?dchild=1&keywords=xbox&qid=1589652777&sr=8-1"
           },
           {
              "api": "bestbuy",
-             "price":"300",
+             "price":300,
              "url":"https://www.bestbuy.com/site/microsoft-xbox-one-x-1tb-nba-2k20-special-edition-console-bundle/6409970.p?skuId=6409970"
           }]
       }

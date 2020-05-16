@@ -20,7 +20,7 @@ function findTheLowestPrice(keywords) {
                     url: products[0].url
                 }
                 for (let i = 1; i < products.length; i++) {
-                    if (parseInt(products[i].price) < parseInt(best.price)) {
+                    if (products[i].price < best.price) {
                         best.price = products[i].price
                         best.api = products[i].api
                         best.url = products[i].url

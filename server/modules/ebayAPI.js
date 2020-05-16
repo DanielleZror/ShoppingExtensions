@@ -18,7 +18,7 @@ function getProduct(keywords) {
                 dataJson = JSON.parse(data);
                 ebayProduct = {
                     api: "ebay",
-                    price: dataJson["findItemsByKeywordsResponse"][0]["searchResult"][0]["item"][0]["sellingStatus"][0]["currentPrice"][0]["__value__"],
+                    price: parseInt(dataJson["findItemsByKeywordsResponse"][0]["searchResult"][0]["item"][0]["sellingStatus"][0]["currentPrice"][0]["__value__"]),
                     url: dataJson["findItemsByKeywordsResponse"][0]["searchResult"][0]["item"][0]["viewItemURL"][0]
                 }
                 resolve(ebayProduct)
