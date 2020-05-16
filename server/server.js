@@ -9,7 +9,7 @@ app.listen(8080, () => {
 
 
 app.get('/api/CheckProduct', (req, res) => {
-    let product = req.query.selectedProduct;
+    let product = JSON.parse(req.query.selectedProduct);
     let domain = req.query.domain;
     let returnValue = false;
     getTheBestProduct(product)

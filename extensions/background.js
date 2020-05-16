@@ -1,40 +1,38 @@
 var domains;
 var products;
 fetch('data.json')
-.then(res => res.json())
-.then(data => {
-    domains = data["domains"]
-    products = data["products"]
-    chrome.tabs.onUpdated.addListener(callback);
-})
+    .then(res => res.json())
+    .then(data => {
+        domains = data["domains"]
+        products = data["products"]
+        chrome.tabs.onUpdated.addListener(onUpdate);
+    })
 
 
 
- callback = (tab_Id, changeInfo, tab) => {  
+ function onUpdate(tab_Id, changeInfo, tab) {  
     if(changeInfo.status == "complete"){
-        var selectedUrl = isCheckedDomain(tab.url)
-        var selectedProduct = isCheckedProduct(tab.title)
+        let selectedUrl = isDomainValid(tab.url)
+        let selectedProduct = isProductValid(tab.title)
         if ((selectedUrl) && (selectedProduct)){
-            apiFindBetterProduct(selectedProduct, selectedUrl, popupExtension)    
+            checkForBetterProduct(selectedProduct, selectedUrl, popupExtension)    
         }
     }
 }
 
-isCheckedDomain = (url) => {
-    var domainUrl = new URL(url)
+function isDomainValid(url){
+    let domainUrl = new URL(url)
     returnValue = false
     domains.forEach(domain => {
-        if(domainUrl.host.includes(domain)){
-            if (isViewOrSearch(url, domain)){
-                returnValue = domain
-            }
+        if(domainUrl.host.includes(domain) && isViewOrSearch(url, domain)){
+            returnValue = domain
         }
     })
     return (returnValue)
 }
 
-isViewOrSearch = (url, host) => {
-    var viewUrl = false
+function isViewOrSearch(url, host){
+    let viewUrl = false
     switch(host) {
         case("ebay"):
             if(url.includes("/itm/")){
@@ -55,10 +53,10 @@ isViewOrSearch = (url, host) => {
     return viewUrl
 }
 
-isCheckedProduct = (title) => {
-    var returnValue = false;
+function isProductValid(title){
+    let returnValue = false;
     products.forEach(product => {
-        var regTitle = new RegExp(".*".concat(product.keywords.join(".*").concat(".*")), "i")
+        let regTitle = new RegExp(`.*${product.keywords.join(".*")}.*`, "i")
         if (title.match(regTitle) != null){
             returnValue = product
         }
@@ -66,28 +64,24 @@ isCheckedProduct = (title) => {
     return returnValue
 }
 
-apiFindBetterProduct = (selectedProduct, domain, callback)  => {
-    sendProduct = {"selectedProduct": selectedProduct, "domain": domain}
-    if(jQuery){
-        jQuery.get("http://localhost:8080/api/CheckProduct", sendProduct , function (data) {
-            if (data) {
+function checkForBetterProduct(selectedProduct, domain, callback){
+    sendProduct = {"selectedProduct": JSON.stringify(selectedProduct), "domain": domain}
+    fetch("http://localhost:8080/api/CheckProduct?" + new URLSearchParams(sendProduct))
+        .then(res => res.json())
+        .then(data => {
+            if(data){
                 callback(data)
             }
-    })}
+        })
 }
 
-popupExtension = (data) => {
+function popupExtension(data){
     win = window.open(
         chrome.extension.getURL("popup.html"),
         "exampleName",
         "width=400,height=400"
     );
-    win.addEventListener('load', function() {
+    win.addEventListener('load', () => {
         chrome.runtime.sendMessage({price: data.price, url: data.url, site: data.api})
     }, true); 
-}
-    
-checkDomain = (url) => {
-    var domainUrl = new URL(url)
-    return (domains.indexOf(domainUrl.host)!= -1)
 }

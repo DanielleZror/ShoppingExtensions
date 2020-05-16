@@ -26,7 +26,7 @@ function findTheLowestPrice(keywords) {
                         best.url = products[i].url
                     }
                 }
-                resolve (best)
+                resolve(best)
             })
         })
 }
