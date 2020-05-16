@@ -23,13 +23,13 @@ fetch('data.json')
 isCheckedDomain = (url) => {
     var domainUrl = new URL(url)
     returnValue = false
-    for (i in domains){
-        if(domainUrl.host.includes(domains[i])){
-            if (isViewOrSearch(url, domains[i])){
-                returnValue = domains[i]
+    domains.forEach(domain => {
+        if(domainUrl.host.includes(domain)){
+            if (isViewOrSearch(url, domain)){
+                returnValue = domain
             }
         }
-    }
+    })
     return (returnValue)
 }
 
@@ -57,11 +57,12 @@ isViewOrSearch = (url, host) => {
 
 isCheckedProduct = (title) => {
     var returnValue = false;
-    for (i in products) {
-        if (title.match(new RegExp(products[i]["product"], "i")) != null){
-            returnValue = products[i]
+    products.forEach(product => {
+        var regTitle = new RegExp(".*".concat(product.keywords.join(".*").concat(".*")), "i")
+        if (title.match(regTitle) != null){
+            returnValue = product
         }
-    }
+    });
     return returnValue
 }
 
@@ -76,15 +77,13 @@ apiFindBetterProduct = (selectedProduct, domain, callback)  => {
 }
 
 popupExtension = (data) => {
-    console.log(data)
-   
     win = window.open(
         chrome.extension.getURL("popup.html"),
         "exampleName",
         "width=400,height=400"
     );
     win.addEventListener('load', function() {
-        chrome.runtime.sendMessage({"price": data["price"],"url": data["url"]})
+        chrome.runtime.sendMessage({price: data.price, url: data.url, site: data.api})
     }, true); 
 }
     

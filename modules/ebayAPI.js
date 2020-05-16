@@ -15,10 +15,10 @@ var url = "https://svcs.ebay.com/services/search/FindingService/v1";
     }
 
     
-    var getEbayProduct = function(productName) {
+    var getProduct = function(keywords) {
         return new Promise(function(resolve, reject){
-            productName = productName.replace(/\.\*/g, " ")
-            buildURL(productName)
+            keywords = keywords.join(" ")
+            buildURL(keywords)
             https.get(url, (resp) => {
                 let data = '';
                 var dataJson;
@@ -31,10 +31,9 @@ var url = "https://svcs.ebay.com/services/search/FindingService/v1";
                resp.on('end', () => {
                     dataJson = JSON.parse(data);
                     ebayProduct = {
-                        ebay: {
-                            price: dataJson["findItemsByKeywordsResponse"][0]["searchResult"][0]["item"][0]["sellingStatus"][0]["currentPrice"][0]["__value__"],
-                            url: dataJson["findItemsByKeywordsResponse"][0]["searchResult"][0]["item"][0]["viewItemURL"][0]
-                        }
+                        api: "ebay",
+                        price: dataJson["findItemsByKeywordsResponse"][0]["searchResult"][0]["item"][0]["sellingStatus"][0]["currentPrice"][0]["__value__"],
+                        url: dataJson["findItemsByKeywordsResponse"][0]["searchResult"][0]["item"][0]["viewItemURL"][0]
                     }
                     resolve(ebayProduct)
                 });
@@ -45,4 +44,4 @@ var url = "https://svcs.ebay.com/services/search/FindingService/v1";
             })
     }
     
-    module.exports = {getEbayProduct}
+    module.exports = {getProduct}

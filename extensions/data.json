@@ -5,32 +5,33 @@
    "ebay",
    "bestbuy"
    ],
-   "nothaveapi":[
-   "amazon",
-   "bestbuy"
-   ],
    "products": [
       {
-         "product":".*dell.*xps.*13.*",
-         "amazon":{
-            "price":"1099",
-            "url":"https://www.amazon.com/Dell-XPS-9370-Touchscreen-Laptop/dp/B07F23CYWL/ref=sr_1_2_sspa?dchild=1&keywords=dell+xps&qid=1589544326&sr=8-2-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEzMDgyRDZLRUlTN0FVJmVuY3J5cHRlZElkPUEwNDgwMjUyMzFVVVpER0RMNEdDNiZlbmNyeXB0ZWRBZElkPUEwMDUwNzY1MkVMUkFBWUxYTU1aTSZ3aWRnZXROYW1lPXNwX2F0ZiZhY3Rpb249Y2xpY2tSZWRpcmVjdCZkb05vdExvZ0NsaWNrPXRydWU="
-         },
-         "bestbuy":{
-            "price":"1200",
-            "url":"https://www.bestbuy.com/site/dell-xps-2-in-1-13-4-touch-screen-laptop-intel-core-i7-8gb-memory-256gb-solid-state-drive-platinum-silver-with-black-interior/6379243.p?skuId=6379243"
-         }
-     }, 
+         "keywords": ["dell","xps", "13"],
+         "sites":[{
+                  "api": "amazon",
+                  "price":"1099",
+                  "url":"https://www.amazon.com/Dell-XPS-9370-Touchscreen-Laptop/dp/B07F23CYWL/ref=sr_1_2_sspa?dchild=1&keywords=dell+xps&qid=1589544326&sr=8-2-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEzMDgyRDZLRUlTN0FVJmVuY3J5cHRlZElkPUEwNDgwMjUyMzFVVVpER0RMNEdDNiZlbmNyeXB0ZWRBZElkPUEwMDUwNzY1MkVMUkFBWUxYTU1aTSZ3aWRnZXROYW1lPXNwX2F0ZiZhY3Rpb249Y2xpY2tSZWRpcmVjdCZkb05vdExvZ0NsaWNrPXRydWU="
+                },
+                {
+                  "api": "bestbuy",
+                  "price":"1200",
+                  "url":"https://www.bestbuy.com/site/dell-xps-2-in-1-13-4-touch-screen-laptop-intel-core-i7-8gb-memory-256gb-solid-state-drive-platinum-silver-with-black-interior/6379243.p?skuId=6379243"
+               }
+            ]
+      }, 
       {
-          "product":".*apple.*macbook.*air.*",
-          "amazon":{
+          "keywords":["apple", "macbook", "air"],
+          "sites":[{
+             "api": "amazon",
              "price":"500",
              "url":"https://www.amazon.com/-/he/Apple-MacBook-13-3in-MF068LL-Renewed/dp/B0765CJS7P/ref=sr_1_1?dchild=1&keywords=macbook+air+13+inch+1.7+ghz+intel+i7&qid=1589389629&sr=8-1"
           },
-          "bestbuy":{
+          {
+             "api": "bestbuy",
              "price":"1000",
              "url":"https://www.bestbuy.com/site/apple-macbook-air-13-3-laptop-with-touch-id-intel-core-i3-8gb-memory-256gb-solid-state-drive-latest-model-gold/6366612.p?skuId=6366612"
-          }
+          }]
       }
    ]
 }
