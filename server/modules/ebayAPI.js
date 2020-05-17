@@ -32,7 +32,7 @@ function buildURL (keywords) {
     let url = "https://svcs.ebay.com/services/search/FindingService/v1";
     url += "?OPERATION-NAME=findItemsByKeywords";
     url += "&SERVICE-VERSION=1.0.0";
-    url += "&SECURITY-APPNAME=BuIL-ILBUTEST-PRD-08df3d054-456c1a75";
+    url += "&SECURITY-APPNAME=[app ebay id]";
     url += "&GLOBAL-ID=EBAY-US";
     url += "&RESPONSE-DATA-FORMAT=JSON";
     url += "&REST-PAYLOAD";
